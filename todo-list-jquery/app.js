@@ -12,8 +12,6 @@ let count = 0;
 $(document).ready(function () {
 
 
-
-
     $('.add-todo-form').submit(function (e) {
         console.log("valid");
         e.preventDefault()
@@ -25,6 +23,7 @@ $(document).ready(function () {
                     <td>
                         <button class=" delete-btn btn btn-danger btn-sm">Delete <i class="fa fa-trash"></i></button>
                     </td>
+                    <td><input class="status form-check-input" type="checkbox" value="" id="defaultCheck1"></td>
                  </tr>`
 
 
@@ -45,9 +44,6 @@ $(document).ready(function () {
         for (let i = 0; i < count; i++) {
 
         }
-
-
-
     })
 
     $(".clear").click(function (e) {
@@ -55,4 +51,11 @@ $(document).ready(function () {
         console.log("cleared")
         count = 0;
     })
+
+    // status
+    $("table").delegate("input", "click", function (e) {
+        $(this).parent().parent().css("text-decoration", "line-through");
+    })
+
+
 });
