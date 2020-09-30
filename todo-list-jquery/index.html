@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -15,6 +17,7 @@
 <body>
     <div class="container">
         <div class="fluid-container">
+
             <div class="heading">
                 <h1 class="text-center">To-Do List</h1>
             </div>
@@ -38,28 +41,63 @@
             <form class="mb-4 add-todo-form">
                 <div class="form-group">
                     <label for="addTodoInput">ADD TODO</label>
-                    <input type="text" class="form-control" id="addTodoInput">
+                    <input type="text" class="form-control font-weight-bold" id="addTodoInput">
                 </div>
-                <button type="submit" class="btn btn-success btn-block">Add To-Do Item
+                <button type="submit" class=" btn btn-success btn-block">Add To-Do Item
                     <i class="fa fa-plus"></i></button>
-                <div class="alert alert-danger" role="alert">
+
+                <!-- <div class="alert alert-danger" role="alert">
                     Cannot add empty Todo.
-                </div>
+                </div> -->
+
+
             </form>
             <button class="clear btn btn-outline-danger btn-block">Clear Todos</button>
+
+            <div class="my-4 todo-count">
+                <div class="total-todo">
+                    <p>Total Todos : </p>
+                </div>
+                <div class="checked">
+                    <p>Checked Todos: </p>
+                </div>
+            </div>
+
             <table class="table" id="todo-table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Tasks</th>
-                        <th scope="col">Delete</th>
-                        <th scope="col">Status</th>
-
+                        <th scope="col"><i <i class="fa fa-arrow-down"></i></i></th>
+                        <th class=" font-weight-bold" scope="col">Tasks</th>
+                        <th class=" font-weight-bold" scope="col">Delete</th>
+                        <th class=" font-weight-bold" scope="col">Status</th>
+                        <th class=" font-weight-bold" scope="col">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="edit" type="text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="save btn btn-primary">Save changes</button>
+                </div>
+            </div>
         </div>
     </div>
 
