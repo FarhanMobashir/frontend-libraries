@@ -15,16 +15,13 @@ $(document).ready(function () {
     // add to-do function
 
     $('.add-todo-form').submit(function (e) {
-        console.log("valid");
-        e.preventDefault()
+        e.preventDefault();
         let item = $("input").first().val();
 
         if (item === '') {
-            $(".add-todo-form").submit(function (e) {
-
-            })
+            $('#deleteModal').modal('show');
         } else {
-            let newItem = ` <tr class="clear-all bg-light">
+            let newItem = `<tr class="clear-all bg-light">
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${item}</td>
                     <td>
@@ -39,7 +36,7 @@ $(document).ready(function () {
             $(".alert").css("display", "none");
             $('.table').append(newItem);
             this.reset();
-            count++
+            count++;
             $(".total-todo").children().children().text(count);
         }
     });
@@ -49,12 +46,18 @@ $(document).ready(function () {
 
 
     $("table").delegate(".delete-btn", "click", function (e) {
+
+
         $(this).parent().parent().remove();
-        console.log(count)
         count--;
         $(".total-todo").children().children().text(count);
-        checked--;
-        $(".checked").children().children().text(checked);
+        if (checked > 0) {
+            checked--;
+            $(".checked").children().children().text(checked);
+        } else {
+            return;
+        }
+
 
     })
 
@@ -71,7 +74,7 @@ $(document).ready(function () {
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${edited}</td>
                     <td>
-                        <button class=" delete-btn btn btn-danger btn-sm">Delete <i class="fa fa-trash"></i></button>
+                        <button class=" delete-btn btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">Delete <i class="fa fa-trash"></i></button>
                     </td>
                     <td class="d-flex justify-content-center"><input type="checkbox" class="form-check-input "></td>
                     <td>
