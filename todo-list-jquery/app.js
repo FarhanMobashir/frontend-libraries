@@ -53,6 +53,8 @@ $(document).ready(function () {
         console.log(count)
         count--;
         $(".total-todo").children().children().text(count);
+        checked--;
+        $(".checked").children().children().text(checked);
 
     })
 
@@ -97,6 +99,9 @@ $(document).ready(function () {
         $(".clear-all").remove();
         console.log("cleared")
         count = 0;
+        checked = 0;
+        $(".checked").children().children().text(checked);
+        $(".total-todo").children().children().text(count);
     })
 
     // status
