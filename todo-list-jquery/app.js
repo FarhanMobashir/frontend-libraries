@@ -6,19 +6,30 @@
 // jQuery functions
 
 let count = 0;
+let checked = 0;
 
-
+// ready function
 
 $(document).ready(function () {
 
+    // add to-do function
 
     $('.add-todo-form').submit(function (e) {
         console.log("valid");
         e.preventDefault()
         let item = $("input").first().val();
 
-
-        let newItem = ` <tr class="clear-all">
+        if (item === '') {
+            $(".add-todo-form").submit(function (e) {
+                let alert = `<div class="not-alert alert alert-danger" role="alert">
+                <strong>Oh snap!</strong> Change a few things up and try submitting again.
+              </div>`
+                setTimeout(function () {
+                    $(".alert").last().remove();
+                }, 2000);
+            })
+        } else {
+            let newItem = ` <tr class="clear-all">
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${item}</td>
                     <td>
@@ -30,26 +41,25 @@ $(document).ready(function () {
                     </td>
                  </tr>`
 
-
-        $('.table').append(newItem);
-        this.reset();
-
-
-
-
+            $(".alert").css("display", "none");
+            $('.table').append(newItem);
+            this.reset();
+            count++
+            $(".total-todo").children().children().text(count);
+        }
     });
 
 
+    // delete function
 
 
-    $(".alert").hide();
     $("table").delegate(".delete-btn", "click", function (e) {
         $(this).parent().parent().remove();
         console.log(count)
 
     })
 
-    // edit
+    // edit-function
 
     $("table").delegate(".edit-btn", "click", function (e) {
         let todoRow = $(this).parent().parent();
@@ -73,10 +83,9 @@ $(document).ready(function () {
             $('#exampleModal').modal('hide')
 
         });
-
-
-
     });
+
+    // save after edit function
 
     $(".save").click(function (e) {
         let edited = $(".edit").val();
@@ -96,8 +105,14 @@ $(document).ready(function () {
     // status
     $("table").delegate("input[type=checkbox]", "click", function (e) {
         $(this).parent().parent().toggleClass("toggle");
+        checked++;
+        $(".checked").children().children().text(checked);
 
     })
+
+
+
+
 
 
 
