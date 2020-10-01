@@ -19,7 +19,7 @@ $(document).ready(function () {
         let item = $("input").first().val();
 
         if (item === '') {
-            $('#deleteModal').modal('show');
+            $('#emptyModal').modal('show');
         } else {
             let newItem = `<tr class="clear-all bg-light">
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
@@ -70,7 +70,10 @@ $(document).ready(function () {
         $('.edit').val(todoContent)
         $(".save").click(function (e) {
             let edited = $(".edit").val();
-            let newItem = ` <tr class="clear-all">
+            if (edited === '') {
+                $('#emptyModal').modal('show');
+            } else {
+                let newItem = ` <tr class="clear-all">
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${edited}</td>
                     <td>
@@ -81,10 +84,14 @@ $(document).ready(function () {
                         <button class="edit-btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Edit <i class="fa fa-edit"></i></button>
                     </td>
                  </tr>`
-            todoRow.replaceWith(newItem)
-            $('#exampleModal').modal('hide')
+                checked--;
+                $(".checked").children().children().text(checked);
+                todoRow.replaceWith(newItem)
+                $('#exampleModal').modal('hide')
+            }
 
         });
+
     });
 
     // save after edit function
@@ -99,6 +106,7 @@ $(document).ready(function () {
     // clear todo
 
     $(".clear").click(function (e) {
+        $("clear-todo")
         $(".clear-all").remove();
         console.log("cleared")
         count = 0;
