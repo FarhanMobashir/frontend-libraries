@@ -21,15 +21,10 @@ $(document).ready(function () {
 
         if (item === '') {
             $(".add-todo-form").submit(function (e) {
-                let alert = `<div class="not-alert alert alert-danger" role="alert">
-                <strong>Oh snap!</strong> Change a few things up and try submitting again.
-              </div>`
-                setTimeout(function () {
-                    $(".alert").last().remove();
-                }, 2000);
+
             })
         } else {
-            let newItem = ` <tr class="clear-all">
+            let newItem = ` <tr class="clear-all bg-light">
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${item}</td>
                     <td>
@@ -56,6 +51,8 @@ $(document).ready(function () {
     $("table").delegate(".delete-btn", "click", function (e) {
         $(this).parent().parent().remove();
         console.log(count)
+        count--;
+        $(".total-todo").children().children().text(count);
 
     })
 
@@ -105,9 +102,16 @@ $(document).ready(function () {
     // status
     $("table").delegate("input[type=checkbox]", "click", function (e) {
         $(this).parent().parent().toggleClass("toggle");
-        checked++;
-        $(".checked").children().children().text(checked);
 
+        // conditions
+        if ($(this).prop("checked") === true) {
+            checked++
+
+        } else {
+            checked--;
+
+        }
+        $(".checked").children().children().text(checked);
     })
 
 

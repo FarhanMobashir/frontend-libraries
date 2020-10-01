@@ -45,18 +45,16 @@
                     <input type="text" class="task-input form-control font-weight-bold" id="addTodoInput"
                         placeholder="add your tasks...">
                 </div>
-                <!-- <div class="alert alert-danger" role="alert">
-                    <strong>Oh snap!</strong> Change a few things up and try submitting again.
-                </div> -->
+
         </div>
         <button type="submit" class=" btn btn-success btn-block">Add To-Do Item
             <i class="fa fa-plus"></i></button>
         </form>
-        <button class="clear btn btn-outline-danger btn-block">Clear Todos</button>
+        <button class="clear btn btn-danger btn-block">Clear Todos <i class="fa fa-minus-circle"></i></button>
 
-        <div class="my-4 todo-count">
+        <div class="my-4 todo-count bg-light text-black rounded">
             <div class="total-todo">
-                <p>Total Todos : <em></em> </p>
+                <p class="">Total Todos : <b></b> </p>
             </div>
             <div class="checked">
                 <p>Checked Todos: <b></b> </p>
@@ -64,7 +62,7 @@
         </div>
 
         <table class="table" id="todo-table">
-            <thead>
+            <thead class="bg-info text-white">
                 <tr>
                     <th scope="col"><i <i class="fa fa-arrow-down"></i></i></th>
                     <th class=" font-weight-bold" scope="col">Tasks</th>
@@ -85,7 +83,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit your todo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -95,7 +93,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="save btn btn-primary">Save changes</button>
+                    <button type="button" class="save btn btn-info">Save changes</button>
                 </div>
             </div>
         </div>
