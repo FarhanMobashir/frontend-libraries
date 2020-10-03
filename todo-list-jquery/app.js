@@ -28,11 +28,11 @@ $(document).ready(function () {
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${item}</td>
                     <td>
-                        <button class="delete-btn  btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">Delete <i class="fa fa-trash"></i></button>
+                        <button class="delete-btn  btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
                     </td>
                     <td class="d-flex justify-content-center"><input type="checkbox" class="check-status form-check-input "></td>
                     <td>
-                        <button class="edit-btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Edit <i class="fa fa-edit"></i></button>
+                        <button class="edit-btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit"></i></button>
                     </td>
                  </tr>`
 
@@ -139,11 +139,11 @@ $(document).ready(function () {
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${edited}</td>
                     <td>
-                        <button class="delete-btn btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">Delete <i class="fa fa-trash"></i></button>
+                        <button class="delete-btn btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
                     </td>
                     <td class="d-flex justify-content-center"><input type="checkbox" class=" form-check-input "></td>
                     <td>
-                        <button class="edit-btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Edit <i class="fa fa-edit"></i></button>
+                        <button class="edit-btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit"></i></button>
                     </td>
                  </tr>`
 
@@ -206,14 +206,31 @@ $(document).ready(function () {
 
     // clear todo
 
-    $(".clear").click(function (e) {
-        $("clear-todo")
-        $(".clear-all").remove();
-        console.log("cleared")
-        count = 0;
-        checked = 0;
-        $(".checked").children().children().text(checked);
-        $(".total-todo").children().children().text(count);
+
+
+
+    // empty-clear-todo
+
+    $(".emptyclear").click(function (e) {
+        if (count === 0) {
+            $('#emptyClearModal').modal('show');
+            $('#clearModal').modal('hide');
+
+        } else {
+            $('#clearModal').modal('show');
+            $(".clear").click(function (e) {
+                $(".clear-all").remove();
+                console.log("cleared")
+                count = 0;
+                checked = 0;
+                $(".checked").children().children().text(checked);
+                $(".total-todo").children().children().text(count);
+
+            })
+
+
+        }
+
     })
 
     // status

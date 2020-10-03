@@ -51,8 +51,7 @@
         <button type="submit" class=" btn btn-success btn-block">Add To-Do Item
             <i class="fa fa-plus"></i></button>
         </form>
-        <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#clearModal">Clear Todos <i
-                class="fa fa-minus-circle"></i></button>
+        <button class="emptyclear btn btn-danger btn-block">Clear Todos <i class="fa fa-minus-circle"></i></button>
 
         <div class="my-4 todo-count bg-light text-black rounded">
             <div class="total-todo">
@@ -89,9 +88,9 @@
     </div>
 
     <!-- modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit your todo</h5>
@@ -113,9 +112,9 @@
     <!-- alert modal -->
 
     <!-- Modal -->
-    <div class="modal fade" id="emptyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade bd-example-modal-sm" id="emptyModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
@@ -134,11 +133,35 @@
         </div>
     </div>
 
+    <!-- clear-todo modal -->
+
+    <div class="modal fade bd-example-modal-sm" id="emptyClearModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <b>Snap !</b> Your List is empty.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Start Adding</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- edit-todo-modal -->
 
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade bd-example-modal-sm" id="editModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
@@ -160,9 +183,9 @@
 
     <!-- clear-todo-modal -->
 
-    <div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade bd-example-modal-sm" id="clearModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
@@ -184,9 +207,9 @@
 
     <!-- delete-modal -->
 
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade bd-example-modal-sm" id="deleteModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
