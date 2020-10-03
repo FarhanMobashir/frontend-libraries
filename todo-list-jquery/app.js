@@ -41,9 +41,14 @@ $(document).ready(function () {
             count++;
             $(".total-todo").children().children().text(count);
             $(".todo").css("aria-valuenow", count);
+
         }
     });
 
+    // progress-bar
+
+    let p = $(".progressbar").prop("aria-valuemax", count);
+    console.log(p);
 
 
 
@@ -59,7 +64,7 @@ $(document).ready(function () {
         $(".confirm-delete").click(function (e) {
             deleted.parent().parent().remove();
 
-            if (checkTrack.prop("checked")) {
+            if (checkTrack.prop("checked") && checked > 0) {
                 console.log(checked);
                 checked--;
                 $(".checked").children().children().text(checked);
