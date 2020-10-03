@@ -97,23 +97,26 @@ $(document).ready(function () {
 
     // select all
 
-    $(".select").click(function (e) {
+    // $(".select").click(function (e) {
 
-        if (!isSelected) {
-            $("input[type=checkbox]").prop("checked", true);
-            $(".checked").children().children().text(count);
+    //     if (!isSelected) {
+    //         $("input[type=checkbox]").prop("checked", true);
+    //         $(".checked").children().children().text(count);
+    //         $(".clear-all").toggleClass("toggle");
 
-            isSelected = true
-        }
-        else {
-            $("input[type=checkbox]").prop("checked", false);
-            $(".checked").children().children().text(0);
-
-            isSelected = false
-        }
+    //         isSelected = true
+    //     }
+    //     else {
+    //         $("input[type=checkbox]").prop("checked", false);
+    //         $(".checked").children().children().text(0);
+    //         $(".clear-all").toggleClass("toggle");
 
 
-    })
+    //         isSelected = false
+    //     }
+
+
+    // })
 
 
 
