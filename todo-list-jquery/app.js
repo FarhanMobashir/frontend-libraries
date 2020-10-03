@@ -7,6 +7,7 @@
 
 let count = 0;
 let checked = 0;
+let isSelected = false;
 
 // ready function
 
@@ -63,31 +64,56 @@ $(document).ready(function () {
         // let x = confirm("do you want to delete")
         $(".confirm-delete").click(function (e) {
             deleted.parent().parent().remove();
-
-            if (checkTrack.prop("checked") && checked > 0) {
-                console.log(checked);
-                checked--;
-                $(".checked").children().children().text(checked);
-
-            }
-
         })
 
+        if (checkTrack.prop("checked") && checked > 0) {
+            console.log(checked);
+            checked--;
+            $(".checked").children().children().text(checked);
+
+        }
+
+
+    })
+
+    // confirm-cancel function
+
+    $(".confirm-cancel").click(function (e) {
+        console.log("confirm-cancel")
+        checked++;
+        $(".checked").children().children().text(checked);
 
     })
 
 
     $(".confirm-delete").click(function (e) {
 
-
-
-
-
         console.log(checked);
         count--;
         $(".total-todo").children().children().text(count);
 
     });
+
+
+    // select all
+
+    $(".select").click(function (e) {
+
+        if (!isSelected) {
+            $("input[type=checkbox]").prop("checked", true);
+            $(".checked").children().children().text(count);
+
+            isSelected = true
+        }
+        else {
+            $("input[type=checkbox]").prop("checked", false);
+            $(".checked").children().children().text(0);
+
+            isSelected = false
+        }
+
+
+    })
 
 
 
@@ -112,7 +138,7 @@ $(document).ready(function () {
                     <td>
                         <button class="delete-btn btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">Delete <i class="fa fa-trash"></i></button>
                     </td>
-                    <td class="d-flex justify-content-center"><input type="checkbox" class="form-check-input "></td>
+                    <td class="d-flex justify-content-center"><input type="checkbox" class=" form-check-input "></td>
                     <td>
                         <button class="edit-btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Edit <i class="fa fa-edit"></i></button>
                     </td>
