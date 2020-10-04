@@ -85,30 +85,32 @@ $(document).ready(function () {
     // confirm-cancel function
 
     $(".confirm-cancel").click(function (e) {
-        console.log("confirm-cancel")
-        checked++;
-        $(".checked").children().children().text(checked);
+        if (checked === 0) {
+            rerurn
+        } else {
+            checked++;
+            $(".checked").children().children().text(checked);
 
-        // progress area
+            // progress area
 
 
-        let progress = (checked / count * 100) + "%";
-        $(".progress-bar").prop("aria-valuemax", "100");
-        $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
+            let progress = (checked / count * 100) + "%";
+            $(".progress-bar").prop("aria-valuemax", "100");
+            $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
+        }
+
 
     })
 
 
     $(".confirm-delete").click(function (e) {
 
-        console.log(checked);
+
         count--;
-
-        // progress area 
-
-
-
         $(".total-todo").children().children().text(count);
+        let progress = (checked / count * 100) + "%";
+        $(".progress-bar").prop("aria-valuemax", "100");
+        $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
 
     });
 
