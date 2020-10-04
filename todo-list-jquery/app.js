@@ -7,6 +7,7 @@
 
 let count = 0;
 let checked = 0;
+
 let isSelected = false;
 
 // ready function
@@ -46,10 +47,8 @@ $(document).ready(function () {
         }
     });
 
-    // progress-bar
 
-    let p = $(".progressbar").prop("aria-valuemax", count);
-    console.log(p);
+
 
 
 
@@ -71,6 +70,13 @@ $(document).ready(function () {
             checked--;
             $(".checked").children().children().text(checked);
 
+            // progress area
+
+            let progress = checked * 10 + '%'
+            let totalprogress = count * 10;
+            $(".progress-bar").prop("aria-valuemax", totalprogress);
+            $(".progress-bar").width(progress);
+
         }
 
 
@@ -83,6 +89,13 @@ $(document).ready(function () {
         checked++;
         $(".checked").children().children().text(checked);
 
+        // progress area
+
+        let progress = checked * 10 + '%'
+        let totalprogress = count * 10;
+        $(".progress-bar").prop("aria-valuemax", totalprogress);
+        $(".progress-bar").width(progress);
+
     })
 
 
@@ -90,6 +103,11 @@ $(document).ready(function () {
 
         console.log(checked);
         count--;
+
+        // progress area 
+
+
+
         $(".total-todo").children().children().text(count);
 
     });
@@ -158,6 +176,10 @@ $(document).ready(function () {
         } else {
             checked--;
         }
+        let progress = checked * 10 + '%';
+        let totalprogress = count * 10;
+        $(".progress-bar").prop("aria-valuemax", 100);
+        $(".progress-bar").width(progress);
 
     });
 
@@ -223,6 +245,14 @@ $(document).ready(function () {
                 console.log("cleared")
                 count = 0;
                 checked = 0;
+                progress = 0;
+                totalprogress = 0;
+
+                // progress area
+
+                $(".progress-bar").prop("aria-valuemax", totalprogress);
+                $(".progress-bar").width(progress);
+
                 $(".checked").children().children().text(checked);
                 $(".total-todo").children().children().text(count);
 
@@ -245,7 +275,14 @@ $(document).ready(function () {
             checked--;
 
         }
+        let progress = checked * 10 + '%';
+        let totalprogress = count * 10;
+        $(".progress-bar").prop("aria-valuemax", 100);
+        $(".progress-bar").width(progress);
+
         $(".checked").children().children().text(checked);
+        console.log("progress: " + progress)
+        console.log("total: " + totalprogress)
     })
 
 
