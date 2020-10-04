@@ -17,14 +17,14 @@
 <body>
     <div class="container">
         <div class="fluid-container">
-
-            <div class="heading">
-                <h1 class="font-weight-bold text-center">To-Do List</h1>
-                <h6 class="text-center text-secondary">We help you to focus on things that really matters</h6>
-                <p class="mobashir">Made by Mobashir Farhan</p>
-            </div>
-            <hr>
-            <!-- <div class="input-section">
+            <div class="function-area">
+                <div class="heading">
+                    <h1 class="font-weight-bold text-center">To-Do List</h1>
+                    <h6 class="text-center text-secondary">We help you to focus on things that really matters</h6>
+                    <p class="mobashir text-danger">Made by Mobashir Farhan</p>
+                </div>
+                <hr>
+                <!-- <div class="input-section">
                 <form >
                     <div class="row label-for-input col-5">
                         <div class="col-xl-6"><label class="h3 font-weight-bold" for="input">Add To-Do</label></div>
@@ -40,18 +40,19 @@
                     </div>
                 </form>
             </div> -->
-            <form class="mb-4 add-todo-form">
-                <div class="form-group">
-                    <label class="font-weight-bold" for="addTodoInput">ADD TODO</label>
-                    <input type="text" class="task-input form-control font-weight-bold" id="addTodoInput"
-                        placeholder="add your tasks...">
-                </div>
+                <form class="mb-4 add-todo-form">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="addTodoInput">ADD TODO</label>
+                        <input type="text" class="task-input form-control font-weight-bold" id="addTodoInput"
+                            placeholder="add your tasks...">
+                    </div>
 
+            </div>
+            <button type="submit" class=" btn btn-success btn-block">Add To-Do Item
+                <i class="fa fa-plus"></i></button>
+            </form>
+            <button class="emptyclear btn btn-danger btn-block">Clear Todos <i class="fa fa-minus-circle"></i></button>
         </div>
-        <button type="submit" class=" btn btn-success btn-block">Add To-Do Item
-            <i class="fa fa-plus"></i></button>
-        </form>
-        <button class="emptyclear btn btn-danger btn-block">Clear Todos <i class="fa fa-minus-circle"></i></button>
 
         <div class="my-4 todo-count bg-light text-black rounded">
             <div class="total-todo">
@@ -71,19 +72,21 @@
         </div>
 
 
-        <table class="table" id="todo-table">
-            <thead class="bg-info text-white">
-                <tr>
-                    <th class="" scope="col"><i <i class="fa fa-arrow-down"></i></i></th>
-                    <th class=" font-weight-bold" scope="col">Tasks</th>
-                    <th class=" font-weight-bold" scope="col">Delete</th>
-                    <th class="select font-weight-bold" scope="col">Status</th>
-                    <th class=" font-weight-bold" scope="col">Edit</th>
-                </tr>
-            </thead>
+
+        <table class="table table-bordered" id="todo-table">
+            <tbody>
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th class="col-1" scope="col"><i <i class="fa fa-arrow-down"></i></i></th>
+                        <th class="col-5 font-weight-bold" scope="col">Tasks</th>
+                        <th class="col-1 font-weight-bold" scope="col">Delete</th>
+                        <th class="col-1 select font-weight-bold" scope="col">Status</th>
+                        <th class="col-1  font-weight-bold" scope="col">Edit</th>
+                    </tr>
+                </thead>
             <tbody>
             </tbody>
-        </table>
+    </div>
     </div>
     </div>
 
@@ -102,7 +105,7 @@
                     <input class="edit" type="text">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class=" btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="save btn btn-info">Save changes</button>
                 </div>
             </div>

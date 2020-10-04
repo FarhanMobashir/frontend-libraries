@@ -72,10 +72,10 @@ $(document).ready(function () {
 
             // progress area
 
-            let progress = checked * 10 + '%'
-            let totalprogress = count * 10;
-            $(".progress-bar").prop("aria-valuemax", totalprogress);
-            $(".progress-bar").width(progress);
+
+            let progress = (checked / count * 100) + "%";
+            $(".progress-bar").prop("aria-valuemax", "100");
+            $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
 
         }
 
@@ -91,10 +91,10 @@ $(document).ready(function () {
 
         // progress area
 
-        let progress = checked * 10 + '%'
-        let totalprogress = count * 10;
-        $(".progress-bar").prop("aria-valuemax", totalprogress);
-        $(".progress-bar").width(progress);
+
+        let progress = (checked / count * 100) + "%";
+        $(".progress-bar").prop("aria-valuemax", "100");
+        $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
 
     })
 
@@ -152,7 +152,11 @@ $(document).ready(function () {
             if (edited === '') {
                 $('#editModal').modal('show');
                 $('#exampleModal').modal('hide');
-            } else {
+
+            } else if (edited == todoContent) {
+                $('#exampleModal').modal('hide');
+            }
+            else {
                 let newItem = ` <tr class="clear-all">
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${edited}</td>
@@ -168,18 +172,27 @@ $(document).ready(function () {
                 $(".checked").children().children().text(checked);
                 todoRow.replaceWith(newItem)
                 $('#exampleModal').modal('hide')
+
+                // progress area
+
+
+
+                let progress = (checked / count * 100) + "%";
+                $(".progress-bar").prop("aria-valuemax", "100");
+                $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
             }
 
         });
+
         if (checked === 0) {
             return;
         } else {
             checked--;
         }
-        let progress = checked * 10 + '%';
-        let totalprogress = count * 10;
-        $(".progress-bar").prop("aria-valuemax", 100);
-        $(".progress-bar").width(progress);
+
+        $(".checked").children().children().text(checked);
+        $(".total-todo").children().children().text(count);
+
 
     });
 
@@ -246,12 +259,12 @@ $(document).ready(function () {
                 count = 0;
                 checked = 0;
                 progress = 0;
-                totalprogress = 0;
 
                 // progress area
 
-                $(".progress-bar").prop("aria-valuemax", totalprogress);
-                $(".progress-bar").width(progress);
+
+                $(".progress-bar").prop("aria-valuemax", "100");
+                $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
 
                 $(".checked").children().children().text(checked);
                 $(".total-todo").children().children().text(count);
@@ -271,18 +284,15 @@ $(document).ready(function () {
         if ($(this).prop("checked") === true) {
             checked++
 
-        } else {
+        } else if (checked > 0) {
             checked--;
 
         }
-        let progress = checked * 10 + '%';
-        let totalprogress = count * 10;
-        $(".progress-bar").prop("aria-valuemax", 100);
-        $(".progress-bar").width(progress);
-
+        let progress = (checked / count * 100) + "%";
+        $(".progress-bar").prop("aria-valuemax", "100");
+        $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
         $(".checked").children().children().text(checked);
-        console.log("progress: " + progress)
-        console.log("total: " + totalprogress)
+
     })
 
 
