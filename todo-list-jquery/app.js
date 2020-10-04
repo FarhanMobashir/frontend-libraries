@@ -80,6 +80,9 @@ $(document).ready(function () {
         } else if (checkTrack.prop("checked") && checked == 1) {
             checked--;
             $(".checked").children().children().text(checked);
+            let progress = (checked / count * 100) + "%";
+            $(".progress-bar").prop("aria-valuemax", "100");
+            $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
         }
 
 
