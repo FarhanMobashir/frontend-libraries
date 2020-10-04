@@ -159,9 +159,8 @@ $(document).ready(function () {
             if (edited === '') {
                 $('#editModal').modal('show');
                 $('#exampleModal').modal('hide');
+                return;
 
-            } else if (edited == todoContent) {
-                $('#exampleModal').modal('hide');
             }
             else {
                 let newItem = ` <tr class="clear-all">
@@ -170,38 +169,41 @@ $(document).ready(function () {
                     <td>
                         <button class="delete-btn btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
                     </td>
-                    <td class="d-flex justify-content-center"><input type="checkbox" class=" form-check-input "></td>
+                    <td class="d-flex justify-content-center"><input type="checkbox" class=" form-check-input" ></td>
                     <td>
                         <button class="edit-btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit"></i></button>
                     </td>
                  </tr>`
 
-                $(".checked").children().children().text(checked);
+
                 todoRow.replaceWith(newItem)
                 $('#exampleModal').modal('hide')
 
-                // progress area
 
-
-
-                let progress = (checked / count * 100) + "%";
-                $(".progress-bar").prop("aria-valuemax", "100");
-                $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
             }
+
+
 
         });
 
+
+    });
+
+
+    $(".save").click(function (e) {
         if (checked === 0) {
             return;
         } else {
             checked--;
+
+            $(".total-todo").children().children().text(count);
+            $(".checked").children().children().text(checked);
+            let progress = (checked / count * 100) + "%";
+            $(".progress-bar").prop("aria-valuemax", "100");
+            $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);
         }
 
-        $(".checked").children().children().text(checked);
-        $(".total-todo").children().children().text(count);
-
-
-    });
+    })
 
     // touch edit function
 
@@ -239,11 +241,11 @@ $(document).ready(function () {
 
     // save after edit function
 
-    $(".save").click(function (e) {
-        let edited = $(".edit").val();
+    // $(".save").click(function (e) {
+    //     let edited = $(".edit").val();
 
 
-    })
+    // })
 
 
     // clear todo
