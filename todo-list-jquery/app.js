@@ -65,7 +65,7 @@ $(document).ready(function () {
             deleted.parent().parent().remove();
         })
 
-        if (checkTrack.prop("checked") && checked > 0) {
+        if (checkTrack.prop("checked") && checked > 1) {
             console.log(checked);
             checked--;
             $(".checked").children().children().text(checked);
@@ -77,6 +77,9 @@ $(document).ready(function () {
             $(".progress-bar").prop("aria-valuemax", "100");
             $(".progress-bar").attr('aria-valuenow', progress).css('width', progress);;
 
+        } else if (checkTrack.prop("checked") && checked == 1) {
+            checked--;
+            $(".checked").children().children().text(checked);
         }
 
 
@@ -85,7 +88,7 @@ $(document).ready(function () {
     // confirm-cancel function
 
     $(".confirm-cancel").click(function (e) {
-        if (checked === 0) {
+        if (checked == 0) {
             rerurn
         } else {
             checked++;
@@ -104,7 +107,6 @@ $(document).ready(function () {
 
 
     $(".confirm-delete").click(function (e) {
-
 
         count--;
         $(".total-todo").children().children().text(count);
