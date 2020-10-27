@@ -153,6 +153,8 @@ $(document).ready(function () {
         let todoRow = $(this).parent().parent();
         console.log(todoRow)
         let todoContent = $(this).parent().parent().children().eq(1).html();
+        let inputStatus = $(this).parent().parent().children().eq(3);
+        console.log(inputStatus)
         $('.edit').val(todoContent)
         $(".save").click(function (e) {
             let edited = $(".edit").val();
@@ -163,6 +165,8 @@ $(document).ready(function () {
 
             }
             else {
+
+
                 let newItem = ` <tr class="clear-all">
                 <th scope="row" class=" font-weight-bold"><i class="fa fa-circle"></i></th>
                 <td class="task font-weight-bold">${edited}</td>
@@ -175,9 +179,12 @@ $(document).ready(function () {
                     </td>
                  </tr>`
 
-
                 todoRow.replaceWith(newItem)
                 $('#exampleModal').modal('hide')
+
+
+
+
 
 
             }
@@ -191,7 +198,7 @@ $(document).ready(function () {
 
 
     $(".save").click(function (e) {
-        if (checked === 0) {
+        if (checked === 0 && $("input[type=checkbox]").checked) {
             return;
         } else {
             checked--;
@@ -293,8 +300,10 @@ $(document).ready(function () {
         if ($(this).prop("checked") === true) {
             checked++
 
+
         } else if (checked > 0) {
             checked--;
+
 
         }
         let progress = (checked / count * 100) + "%";
