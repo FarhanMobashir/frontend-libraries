@@ -4,7 +4,7 @@ body{
     font-weight: bold
     ;
 }
-@media (min-width: 769px) {
+@media (min-width: 780px) {
     .social{
         padding-top: 20px;
     }
@@ -16,7 +16,7 @@ body{
     }
     
     i:hover{
-        color: #f11c32;
+        color:#067e7e;
         font-size: 80px;
         
     }
@@ -30,18 +30,15 @@ body{
         margin-top: 100px;
     }
     .container{
-        border-radius: 20px;
-        background: linear-gradient(145deg, #db4b59, #ff596a);
-        box-shadow:  50px 50px 100px #cf4754, 
-                     -50px -50px 100px #ff5f72;
-        color: white;
+        border-radius: 50px;
+background: #55b9f3;
+box-shadow:  25px 25px 50px #285772, 
+             -25px -25px 50px #82ffff;
+        color:black;
         padding: 30px;
         margin-left: 250px;
         margin-right: 250px;
         margin-top: 100px;
-    }
-    input{
-        border: none;
     }
     
     .button-div{
@@ -54,23 +51,26 @@ body{
         color: #db4b59;
         font-size: 20px;
     }
+    input{
+        border: none;
+    }
 }
 
 
 
 
 @media (max-width: 480px) {
+    input{
+        border: none;
+    }
     .container{
         margin-top: 100px;
         padding: 20px;
         border-radius: 5px;
-    background: linear-gradient(145deg, #db4b59, #ff596a);
-    box-shadow:  50px 50px 100px #cf4754, 
-                 -50px -50px 100px #ff5f72;
-    }
-
-    input{
-        border: none;
+        border-radius: 50px;
+        background: #55b9f3;
+        box-shadow:  25px 25px 50px #285772, 
+                     -25px -25px 50px #82ffff;
     }
     .button-div {
         padding-left: 75px;
